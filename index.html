@@ -6,126 +6,44 @@
   <title>BD Auto Corporation</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f4f4f4;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(90deg, #111, #444);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2em;
-      font-style: italic;
-      color: #ddd;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
+    header { background: linear-gradient(90deg, #111, #444); color: #fff; text-align: center; padding: 60px 20px; }
+    header h1 { font-size: 3em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; font-style: italic; color: #ddd; }
 
-    /* Typing effect */
-    .typing {
-      display: inline-block;
-      border-right: 3px solid #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typing 3s steps(30) infinite, blink 0.7s step-end infinite alternate;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink {
-      50% { border-color: transparent }
-    }
+    .typing { display: inline-block; border-right: 3px solid #fff; white-space: nowrap; overflow: hidden;
+              animation: typing 3s steps(30) infinite, blink 0.7s step-end infinite alternate; }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
 
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      font-size: 2.2em;
-      margin-bottom: 40px;
-      color: #111;
-    }
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; font-size: 2.2em; margin-bottom: 40px; color: #111; }
 
-    .services, .cars {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-    .card {
-      background: #fff;
-      padding: 30px 20px;
-      flex: 1 1 calc(45% - 40px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      border-radius: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 25px rgba(0,0,0,0.25);
-    }
-    .card h3 {
-      margin-bottom: 15px;
-      color: #111;
-    }
-    .card p {
-      color: #555;
-    }
+    .services, .cars { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card { background: #fff; padding: 20px; flex: 1 1 calc(45% - 40px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.25); }
+    .card h3 { margin-bottom: 15px; color: #111; }
+    .card p { color: #555; }
+    .btn { display: inline-block; padding: 12px 30px; margin-top: 15px; color: #fff; background: #111;
+           border-radius: 50px; text-decoration: none; transition: background 0.3s; }
+    .btn:hover { background: #444; }
 
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      padding: 12px 30px;
-      margin-top: 15px;
-      color: #fff;
-      background: #111;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: background 0.3s;
-    }
-    .btn:hover {
-      background: #444;
-    }
+    footer { background: #111; color: #fff; text-align: center; padding: 30px 20px; margin-top: 60px; }
 
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-      margin-top: 60px;
-    }
-
-    @media(max-width: 768px){
-      .card {
-        flex: 1 1 100%;
-      }
-    }
+    @media(max-width: 768px){ .card { flex: 1 1 100%; } }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <h1>BD Auto Corporation</h1>
     <p class="typing">Luxury Cars Imported from Australia, Dubai, Japan, USA & More</p>
   </header>
 
+  <!-- About Section -->
   <section>
     <h2>About Us</h2>
     <p style="text-align:center; max-width:800px; margin:auto;">
@@ -137,6 +55,7 @@
     </p>
   </section>
 
+  <!-- Services Section -->
   <section>
     <h2>Our Services</h2>
     <div class="services">
@@ -158,28 +77,15 @@
     </div>
   </section>
 
+  <!-- Premium Cars Section (Auto Card System) -->
   <section>
     <h2>Our Premium Cars</h2>
-    <div class="cars">
-      <div class="card">
-        <h3>BMW</h3>
-        <p>Luxury cars imported from Japan & USA.</p>
-      </div>
-      <div class="card">
-        <h3>GTR</h3>
-        <p>High-performance cars from Japan & Dubai.</p>
-      </div>
-      <div class="card">
-        <h3>Mercedes-Benz</h3>
-        <p>Imported from Germany & USA for premium customers.</p>
-      </div>
-      <div class="card">
-        <h3>Porsche</h3>
-        <p>Exquisite cars sourced from Dubai & Japan.</p>
-      </div>
+    <div class="cars" id="carsContainer">
+      <!-- JS automatically fills this -->
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section>
     <h2>Contact Us</h2>
     <p style="text-align:center;">
@@ -188,10 +94,37 @@
     </p>
   </section>
 
+  <!-- Footer -->
   <footer>
     © 2025 BD Auto Corporation. All Rights Reserved.<br>
     Managing Director: Pritam Sarker | Future CEO: Ishak Abir
   </footer>
+
+  <!-- JavaScript for Auto Car Cards -->
+  <script>
+    // List of car images and descriptions
+    const cars = [
+      {name: "BMW", img: "images/bmw.jpg", desc: "Luxury cars imported from Japan & USA"},
+      {name: "GTR", img: "images/gtr.jpg", desc: "High-performance cars from Japan & Dubai"},
+      {name: "Mercedes-Benz", img: "images/mercedes.jpg", desc: "Imported from Germany & USA for premium customers"},
+      {name: "Porsche", img: "images/porsche.jpg", desc: "Exquisite cars sourced from Dubai & Japan"}
+    ];
+
+    const container = document.getElementById("carsContainer");
+
+    // Auto generate car cards
+    cars.forEach(car => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${car.name}</h3>
+        <img src="${car.img}" alt="${car.name}" style="width:100%; border-radius:10px; margin-bottom:15px;">
+        <p>${car.desc}</p>
+        <a href="#" class="btn">Explore Cars</a>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 
 </body>
 </html>

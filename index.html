@@ -17,20 +17,21 @@
       color: #fff;
       overflow: hidden;
     }
-    header video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-    header .overlay {
+    header::before {
+      content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: linear-gradient(90deg, #111, #444);
       opacity: 0.7;
       z-index: 1;
+    }
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
     }
     header .content {
       position: relative;
@@ -41,12 +42,19 @@
     header h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      color: #fff;
     }
-    header p#typingText {
+    header p.typing {
       font-size: 1.2em;
       font-style: italic;
-      color: #fff; /* text color */
+      display: inline-block;
+      border-right: 3px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 5s steps(80) infinite, blink 0.7s step-end infinite alternate;
     }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
 
     /* Sections */
     section { padding: 60px 20px; max-width: 1100px; margin: auto; }
@@ -71,14 +79,10 @@
 
   <!-- Header -->
   <header>
-    <video autoplay muted loop playsinline>
-      <source src="background.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
-    <div class="overlay"></div>
+    <video id="bgVideo" autoplay muted loop playsinline></video>
     <div class="content">
       <h1>BD Auto Corporation</h1>
-      <p id="typingText"></p>
+      <p class="typing">Luxury Cars Imported from Australia, Dubai, Japan, USA & More</p>
     </div>
   </header>
 
@@ -137,21 +141,8 @@
     Managing Director: Pritam Sarker | Future CEO: Ishak Abir
   </footer>
 
-  <!-- JS -->
+  <!-- JS for Auto Car Cards -->
   <script>
-    // Typing loop for header
-    const text = "Luxury Cars Imported from Australia, Dubai, Japan, USA & More";
-    const typingElement = document.getElementById("typingText");
-    let index = 0;
-    function typeLoop() {
-      typingElement.textContent = text.slice(0, index);
-      index++;
-      if(index > text.length){ index = 0; }
-      setTimeout(typeLoop, 100);
-    }
-    typeLoop();
-
-    // Auto Car Cards
     const cars = [
       {name: "BMW", img: "images/bmw.jpg", desc: "Luxury cars imported from Japan & USA"},
       {name: "GTR", img: "images/gtr.jpg", desc: "High-performance cars from Japan & Dubai"},
@@ -170,6 +161,20 @@
       `;
       container.appendChild(card);
     });
+
+    // JS to auto-load background.mp4
+    const video = document.getElementById("bgVideo");
+    const videoFile = "background.mp4"; // must be same folder
+    fetch(videoFile)
+      .then(res => {
+        if(res.ok){
+          video.src = videoFile;
+          video.load();
+        } else {
+          console.log("Background video not found.");
+        }
+      })
+      .catch(err => console.log("Error loading video:", err));
   </script>
 
 </body>

@@ -23,7 +23,7 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: linear-gradient(90deg, #111, #444);
-      opacity: 0.7;
+      opacity: 0.6;
       z-index: 1;
     }
     header video {
@@ -42,6 +42,7 @@
     header h1 {
       font-size: 3em;
       margin-bottom: 10px;
+      color: #fff; /* White text */
     }
     header p.typing {
       font-size: 1.2em;
@@ -51,7 +52,9 @@
       white-space: nowrap;
       overflow: hidden;
       animation: typing 5s steps(80) infinite, blink 0.7s step-end infinite alternate;
+      color: #fff; /* White text */
     }
+
     @keyframes typing { from { width: 0 } to { width: 100% } }
     @keyframes blink { 50% { border-color: transparent } }
 
@@ -78,10 +81,7 @@
 
   <!-- Header -->
   <header>
-    <video autoplay muted loop playsinline>
-      <source src="background.mp4" type="video/mp4">
-      Your browser does not support video playback.
-    </video>
+    <video id="bgVideo" autoplay muted loop playsinline></video>
     <div class="content">
       <h1>BD Auto Corporation</h1>
       <p class="typing">Luxury Cars Imported from Australia, Dubai, Japan, USA & More</p>
@@ -143,8 +143,29 @@
     Managing Director: Pritam Sarker | Future CEO: Ishak Abir
   </footer>
 
-  <!-- JS for Auto Car Cards -->
+  <!-- JS -->
   <script>
+    // Try multiple variations of video file names
+    const possibleNames = ["background.mp4", "background.MP4", "Background.mp4", "Background.MP4"];
+    const video = document.getElementById("bgVideo");
+
+    (async function checkVideo() {
+      for (let name of possibleNames) {
+        try {
+          const response = await fetch(name, { method: 'HEAD' });
+          if (response.ok) {
+            const source = document.createElement("source");
+            source.src = name;
+            source.type = "video/mp4";
+            video.appendChild(source);
+            video.load();
+            break;
+          }
+        } catch (e) { /* ignore */ }
+      }
+    })();
+
+    // Cars list
     const cars = [
       {name: "BMW", img: "images/bmw.jpg", desc: "Luxury cars imported from Japan & USA"},
       {name: "GTR", img: "images/gtr.jpg", desc: "High-performance cars from Japan & Dubai"},
@@ -152,10 +173,7 @@
       {name: "Porsche", img: "images/porsche.jpg", desc: "Exquisite cars sourced from Dubai & Japan"},
       {name: "Nissan Skyline GTR R34", img: "images/gtr34.jpg", desc: "Legendary Japanese sports car, iconic R34 model"}
     ];
-
     const container = document.getElementById("carsContainer");
-
-    // Auto generate car cards
     cars.forEach(car => {
       const card = document.createElement("div");
       card.className = "card";

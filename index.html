@@ -1,148 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BD Auto Corporation</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Roboto', sans-serif; background: #f4f4f4; color:#333; line-height:1.6; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BD Auto Corporation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
 
-/* Header */
-header {
-  position: relative; height: 100vh; text-align: center; color:#fff; overflow:hidden;
-}
-header video {
-  position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;
-}
-header::before {
-  content:""; position:absolute; top:0; left:0; width:100%; height:100%;
-  background: linear-gradient(90deg, #111, #444); opacity:0.7; z-index:1;
-}
-header .content {
-  position:relative; z-index:2; top:40%; transform:translateY(-40%);
-}
-header h1 { font-size:3em; margin-bottom:10px; }
-header p.typing {
-  font-size:1.2em; font-style:italic; display:inline-block; border-right:3px solid #fff;
-  white-space:nowrap; overflow:hidden;
-  animation: typing 5s steps(80) infinite, blink 0.7s step-end infinite alternate;
-}
-@keyframes typing { from { width:0 } to { width:100% } }
-@keyframes blink { 50% { border-color:transparent } }
+    /* Header Section */
+    header {
+      position: relative;
+      height: 100vh;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, #111, #444);
+      opacity: 0.7;
+      z-index: 1;
+    }
+    header video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    header .content {
+      position: relative;
+      z-index: 2;
+      top: 40%;
+      transform: translateY(-40%);
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p.typing {
+      font-size: 1.2em;
+      font-style: italic;
+      display: inline-block;
+      border-right: 3px solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 5s steps(80) infinite, blink 0.7s step-end infinite alternate;
+    }
+    @keyframes typing { from { width: 0 } to { width: 100% } }
+    @keyframes blink { 50% { border-color: transparent } }
 
-/* Sections */
-section { padding:60px 20px; max-width:1100px; margin:auto; }
-h2 { text-align:center; font-size:2.2em; margin-bottom:40px; color:#111; }
+    /* Sections */
+    section { padding: 60px 20px; max-width: 1100px; margin: auto; }
+    h2 { text-align: center; font-size: 2.2em; margin-bottom: 40px; color: #111; }
 
-.services, .cars { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
-.card {
-  background:#fff; padding:20px; flex:1 1 calc(45% - 40px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.15); border-radius:10px;
-  transition: transform 0.3s, box-shadow 0.3s; text-align:center;
-}
-.card:hover { transform: translateY(-10px); box-shadow:0 15px 25px rgba(0,0,0,0.25); }
-.card h3 { margin-bottom:15px; color:#111; }
-.card p { color:#555; }
-.btn { display:inline-block; padding:12px 30px; margin-top:15px; color:#fff; background:#111;
-       border-radius:50px; text-decoration:none; transition: background 0.3s; }
-.btn:hover { background:#444; }
+    .services, .cars { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+    .card { background: #fff; padding: 20px; flex: 1 1 calc(45% - 40px); box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 10px; transition: transform 0.3s, box-shadow 0.3s; text-align: center; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.25); }
+    .card h3 { margin-bottom: 15px; color: #111; }
+    .card p { color: #555; }
+    .btn { display: inline-block; padding: 12px 30px; margin-top: 15px; color: #fff; background: #111;
+           border-radius: 50px; text-decoration: none; transition: background 0.3s; }
+    .btn:hover { background: #444; }
 
-footer { background:#111; color:#fff; text-align:center; padding:30px 20px; margin-top:60px; }
-@media(max-width:768px){ .card { flex:1 1 100%; } }
-</style>
+    footer { background: #111; color: #fff; text-align: center; padding: 30px 20px; margin-top: 60px; }
+
+    @media(max-width: 768px){ .card { flex: 1 1 100%; } }
+  </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <video autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4">
-    Your browser does not support video playback.
-  </video>
-  <div class="content">
-    <h1>BD Auto Corporation</h1>
-    <p class="typing">Luxury Cars Imported from Australia, Dubai, Japan, USA & More</p>
-  </div>
-</header>
-
-<!-- About Section -->
-<section>
-  <h2>About Us</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">
-    BD Auto Corporation is a leading luxury car dealership in Dhaka, bringing premium vehicles from around the world. Explore our collection of BMW, GTR, Mercedes-Benz, Porsche and more.
-  </p>
-  <p style="text-align:center; margin-top:15px;">
-    Managing Director: <strong>Pritam Sarker</strong><br>
-    Future CEO: <strong>Ishak Abir</strong> (currently handling Finance Department)
-  </p>
-</section>
-
-<!-- Services Section -->
-<section>
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card">
-      <h3>Car Dealership</h3>
-      <p>High-end imported cars from top international brands.</p>
-      <a href="#" class="btn">Explore Cars</a>
+  <!-- Header -->
+  <header id="header">
+    <div class="content">
+      <h1>BD Auto Corporation</h1>
+      <p class="typing">Luxury Cars Imported from Australia, Dubai, Japan, USA & More</p>
     </div>
-    <div class="card">
-      <h3>Consultation</h3>
-      <p>Expert advice for selecting your perfect luxury car.</p>
-      <a href="#" class="btn">Book Consultation</a>
+  </header>
+
+  <!-- About Section -->
+  <section>
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      BD Auto Corporation is a leading luxury car dealership in Dhaka, bringing premium vehicles from around the world. Explore our collection of BMW, GTR, Mercedes-Benz, Porsche and more.
+    </p>
+    <p style="text-align:center; margin-top:15px;">
+      Managing Director: <strong>Pritam Sarker</strong><br>
+      Future CEO: <strong>Ishak Abir</strong> (currently handling Finance Department)
+    </p>
+  </section>
+
+  <!-- Services Section -->
+  <section>
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Car Dealership</h3>
+        <p>High-end imported cars from top international brands.</p>
+        <a href="#" class="btn">Explore Cars</a>
+      </div>
+      <div class="card">
+        <h3>Consultation</h3>
+        <p>Expert advice for selecting your perfect luxury car.</p>
+        <a href="#" class="btn">Book Consultation</a>
+      </div>
+      <div class="card">
+        <h3>After-Sale Support</h3>
+        <p>Reliable service and support for all our customers.</p>
+        <a href="#" class="btn">Contact Support</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>After-Sale Support</h3>
-      <p>Reliable service and support for all our customers.</p>
-      <a href="#" class="btn">Contact Support</a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Premium Cars Section -->
-<section>
-  <h2>Our Premium Cars</h2>
-  <div class="cars" id="carsContainer"></div>
-</section>
+  <!-- Premium Cars Section -->
+  <section>
+    <h2>Our Premium Cars</h2>
+    <div class="cars" id="carsContainer"></div>
+  </section>
 
-<!-- Contact Section -->
-<section>
-  <h2>Contact Us</h2>
-  <p style="text-align:center;">
-    Email: <a href="mailto:bdauto@gmail.com">bdauto@gmail.com</a><br>
-    Address: Banani, Dhaka, Bangladesh
-  </p>
-</section>
+  <!-- Contact Section -->
+  <section>
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">
+      Email: <a href="mailto:bdauto@gmail.com">bdauto@gmail.com</a><br>
+      Address: Banani, Dhaka, Bangladesh
+    </p>
+  </section>
 
-<!-- Footer -->
-<footer>
-  © 2025 BD Auto Corporation. All Rights Reserved.<br>
-  Managing Director: Pritam Sarker | Future CEO: Ishak Abir
-</footer>
+  <!-- Footer -->
+  <footer>
+    © 2025 BD Auto Corporation. All Rights Reserved.<br>
+    Managing Director: Pritam Sarker | Future CEO: Ishak Abir
+  </footer>
 
-<!-- JS for Auto Car Cards -->
-<script>
-const cars = [
-  {name: "BMW", img: "images/bmw.jpg", desc: "Luxury cars imported from Japan & USA"},
-  {name: "GTR", img: "images/gtr.jpg", desc: "High-performance cars from Japan & Dubai"},
-  {name: "Mercedes-Benz", img: "images/mercedes.jpg", desc: "Imported from Germany & USA for premium customers"},
-  {name: "Porsche", img: "images/porsche.jpg", desc: "Exquisite cars sourced from Dubai & Japan"}
-];
-const container = document.getElementById("carsContainer");
-cars.forEach(car => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `
-    <h3>${car.name}</h3>
-    <img src="${car.img}" alt="${car.name}" style="width:100%; border-radius:10px; margin-bottom:15px;">
-    <p>${car.desc}</p>
-    <a href="#" class="btn">Explore Cars</a>
-  `;
-  container.appendChild(card);
-});
-</script>
+  <!-- JS for Auto Car Cards + Background Video -->
+  <script>
+    // Auto generate car cards
+    const cars = [
+      {name: "BMW", img: "images/bmw.jpg", desc: "Luxury cars imported from Japan & USA"},
+      {name: "GTR", img: "images/gtr.jpg", desc: "High-performance cars from Japan & Dubai"},
+      {name: "Mercedes-Benz", img: "images/mercedes.jpg", desc: "Imported from Germany & USA for premium customers"},
+      {name: "Porsche", img: "images/porsche.jpg", desc: "Exquisite cars sourced from Dubai & Japan"}
+    ];
+    const container = document.getElementById("carsContainer");
+    cars.forEach(car => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <h3>${car.name}</h3>
+        <img src="${car.img}" alt="${car.name}" style="width:100%; border-radius:10px; margin-bottom:15px;">
+        <p>${car.desc}</p>
+        <a href="#" class="btn">Explore Cars</a>
+      `;
+      container.appendChild(card);
+    });
+
+    // Background Video Auto Load
+    window.addEventListener("DOMContentLoaded", () => {
+      const header = document.getElementById("header");
+      const video = document.createElement("video");
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+
+      // Auto detect background.mp4 in repo
+      video.src = "background.mp4"; 
+      video.type = "video/mp4";
+
+      video.style.position = "absolute";
+      video.style.top = 0;
+      video.style.left = 0;
+      video.style.width = "100%";
+      video.style.height = "100%";
+      video.style.objectFit = "cover";
+      video.style.zIndex = 0;
+
+      header.prepend(video);
+    });
+  </script>
 
 </body>
 </html>
